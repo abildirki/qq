@@ -1,0 +1,1858 @@
+/* Reset ve Temel Stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Performans için will-change özelliği */
+.logo, .nav-links a {
+    will-change: transform;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: #f8f9fa;
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.logo a:hover {
+    color: #6c63ff;
+    transform: translateY(-1px);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #4a5568;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #6c63ff;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #6c63ff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Profile Section */
+.profil {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profil-bilgileri {
+    background: linear-gradient(135deg, #6c63ff11 0%, #ffffff 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profil-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profil-resim {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #6c63ff;
+}
+
+.profil-resim img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profil-detay h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.profil-detay p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.profil-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cikis-yap {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.cikis-yap:hover {
+    background-color: #ff6b81;
+}
+
+@media (max-width: 768px) {
+    .profil-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .profil-resim {
+        margin: 0 auto;
+    }
+    
+    .istatistik-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profil-actions {
+        justify-content: center;
+    }
+}
+
+/* İstatistik Kartları */
+.istatistik-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.istatistik-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.istatistik-card:hover {
+    transform: translateY(-5px);
+}
+
+.istatistik-card h4 {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.istatistik-card p {
+    color: #6c63ff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.istatistik-card span {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Auth visibility classes */
+.guest-only {
+    display: none;
+}
+
+.auth-only {
+    display: none;
+}
+
+body.logged-in .auth-only {
+    display: block;
+}
+
+body.logged-in .guest-only {
+    display: none;
+}
+
+body:not(.logged-in) .guest-only {
+    display: block;
+}
+
+body:not(.logged-in) .auth-only {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .profil-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .profil-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .profil-actions button {
+        width: 100%;
+    }
+}
+
+/* Ana İçerik Optimizasyonu */
+main {
+    margin-top: 80px;
+    min-height: calc(100vh - 160px);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #f7f7ff 0%, #e2e8f0 100%);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: translateY(-5px);
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.hero-text {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Footer Optimizasyonu */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Tasarım Optimizasyonu */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-content {
+        gap: 1rem;
+    }
+
+    .hero-image {
+        max-width: 90%;
+    }
+
+    .hero-text {
+        padding: 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+/* Performans İyileştirmeleri */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Yazdırma Stilleri */
+@media print {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        height: auto;
+        background: none;
+    }
+    
+    footer {
+        background: none;
+        color: #000;
+    }
+}
+
+/* Özellikler Bölümü */
+.features {
+    padding: 4rem 2rem;
+    background-color: white;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+/* Responsive düzenlemeler için mevcut media query'ye eklemeler */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+    }
+}
+
+/* CSS Variables */
+:root {
+    --primary-color: #6b4de6;
+    --secondary-color: #9f7aea;
+    --background-color: #f7f7ff;
+    --text-color: #2d3748;
+    --light-text: #718096;
+    --error-color: #e53e3e;
+    --success-color: #38a169;
+}
+
+/* Auth Buttons */
+.auth-btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    color: #6c63ff;
+    border: 2px solid #6c63ff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 120px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-btn:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+}
+
+.auth-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #6c63ff;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.auth-btn:hover::before {
+    width: 100%;
+}
+
+.auth-btn.primary {
+    background: #6c63ff;
+    color: white;
+    border: none;
+    min-width: 120px;
+    height: 42px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-btn.primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: white;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.auth-btn.primary:hover {
+    color: #6c63ff;
+    border: 2px solid #6c63ff;
+    background: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+
+.auth-btn.primary:hover::before {
+    width: 100%;
+}
+
+/* Mobil cihazlar için responsive tasarım */
+@media (max-width: 768px) {
+    .auth-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Buton aktif durumu */
+.auth-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Buton devre dışı durumu */
+.auth-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Buton yükleniyor durumu */
+.auth-btn.loading {
+    cursor: wait;
+    opacity: 0.8;
+}
+
+/* Buton grup stili */
+.auth-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Özel hover efekti */
+@media (hover: hover) {
+    .auth-btn:hover {
+        transform: translateY(-2px) scale(1.02);
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1100;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    margin: 5% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--light-text);
+}
+
+/* Auth Forms */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.auth-form h2 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.1);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.submit-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.form-switch {
+    text-align: center;
+    color: var(--light-text);
+}
+
+.form-switch a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.form-switch a:hover {
+    text-decoration: underline;
+}
+
+/* Form Validation Styles */
+.error-message {
+    color: #dc3545;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.success-message {
+    color: #28a745;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    .auth-form {
+        padding: 1rem;
+    }
+}
+
+/* User Profile Styles */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: 2px solid transparent;
+}
+
+.user-profile:hover {
+    background-color: rgba(108, 99, 255, 0.1);
+    border-color: rgba(108, 99, 255, 0.2);
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #6c63ff;
+    box-shadow: 0 2px 8px rgba(108, 99, 255, 0.2);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.profile-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.profile-email {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    background-color: white;
+    min-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    display: none;
+    z-index: 1000;
+    border: 1px solid rgba(108, 99, 255, 0.1);
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.dropdown-content a i {
+    font-size: 1.1rem;
+    color: #6c63ff;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(108, 99, 255, 0.1);
+    color: #6c63ff;
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+/* Dashboard Styles */
+.dashboard {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dashboard-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.stat-cards {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.stat-card:last-child {
+    border-bottom: none;
+}
+
+.stat-card h4 {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Rüya Kartları */
+.ruya-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.ruya-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.ruya-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.ruya-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.ruya-header h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+    font-weight: 600;
+}
+
+.lucid-badge {
+    background: linear-gradient(135deg, #6c63ff, #5a52e7);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.ruya-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.ruya-preview {
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ruya-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.ruya-actions button {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.ruya-actions button:first-child {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.ruya-actions button:first-child:hover {
+    background-color: #e4e4e4;
+}
+
+.ruya-actions button.error {
+    background-color: #fff0f0;
+    color: #ff4444;
+}
+
+.ruya-actions button.error:hover {
+    background-color: #ffe4e4;
+}
+
+/* Yeni Rüya Modal Tasarımı */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    margin: 2rem auto;
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal .close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal .close:hover {
+    color: #333;
+    transform: rotate(90deg);
+}
+
+.modal h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0 0 1.5rem 0;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.1);
+}
+
+.form-group.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group.checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #6c63ff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group.checkbox label {
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.modal button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #6c63ff, #5a52e7);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+}
+
+/* Empty State Design */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 300px;
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+.empty-state p {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.empty-state .auth-btn {
+    margin-top: 1rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.1);
+}
+
+.form-group.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group.checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #6c63ff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group.checkbox label {
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Rüya Analiz Sayfası */
+.analiz {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.analiz-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.analiz-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.analiz-header h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.analiz-aciklama {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.analiz-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.analiz-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.analiz-sonuc {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+/* Kapsamlı Analiz Stilleri */
+.kapsamli-analiz {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.analiz-bolum-baslik {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 25px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #6c5ce7;
+}
+
+.analiz-bolum-baslik:first-child {
+    margin-top: 0;
+}
+
+.analiz-madde {
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #34495e;
+    padding-left: 25px;
+    position: relative;
+    font-size: 1.05em;
+}
+
+.analiz-madde strong {
+    color: #6c5ce7;
+    margin-right: 8px;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive Design for Analysis */
+@media (max-width: 768px) {
+    .analiz {
+        padding: 1rem;
+    }
+
+    .analiz-container {
+        padding: 1rem;
+    }
+
+    .kapsamli-analiz {
+        padding: 20px;
+    }
+
+    .analiz-madde {
+        font-size: 1em;
+        padding-left: 20px;
+    }
+}
+
+/* Analysis Button Styles */
+.analiz-card .auth-btn {
+    width: 100%;
+    margin-top: auto;
+}
+
+.analiz-card .auth-btn:hover {
+    background: #5a51d6;
+}
+
+/* Analiz Sonuçları Stilleri */
+.analiz-baslik {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #6c63ff;
+}
+
+.analiz-icerik {
+    margin-top: 1rem;
+}
+
+.analiz-icerik p {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.sembol-listesi, .duygu-listesi, .tema-listesi {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.sembol-item, .duygu-item, .tema-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.sembol-item:hover, .duygu-item:hover, .tema-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.sembol-item h4, .duygu-item h4, .tema-item h4 {
+    color: #6c63ff;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.sembol-item p, .duygu-item p, .tema-item p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .sembol-listesi, .duygu-listesi, .tema-listesi {
+        grid-template-columns: 1fr;
+    }
+    
+    .analiz-sonuc {
+        padding: 1rem;
+    }
+}
+
+/* Loader for analysis */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #6c63ff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Gemini Analysis Results */
+.gemini-analiz {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.analiz-madde {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.analiz-madde:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.analiz-madde strong {
+    color: #6c63ff;
+    margin-right: 0.5rem;
+}
+
+/* Kapsamlı Analiz Stilleri */
+.kapsamli-analiz {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.analiz-bolum-baslik {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 20px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #6c5ce7;
+}
+
+.analiz-bolum-baslik:first-child {
+    margin-top: 0;
+}
+
+.analiz-madde {
+    margin: 12px 0;
+    line-height: 1.6;
+    color: #34495e;
+    padding-left: 20px;
+    position: relative;
+}
+
+.analiz-madde strong {
+    color: #6c5ce7;
+    margin-right: 8px;
+    position: absolute;
+    left: 0;
+}
+
+.analiz-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.analiz-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.analiz-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #6c5ce7;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Rüya Günlüğü Sayfası */
+.page {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 80px auto 0;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+    width: 100%;
+}
+
+.page-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 300px;
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+.empty-state p {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.empty-state .auth-btn {
+    margin-top: 1rem;
+}
+
+.yeni-ruya-btn {
+    background: linear-gradient(135deg, #6c63ff, #5a52e7);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(108, 99, 255, 0.2);
+}
+
+.yeni-ruya-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(108, 99, 255, 0.3);
+}
+
+.yeni-ruya-btn i {
+    font-size: 1.1rem;
+}
+
+.ruya-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.ruya-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.ruya-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.ruya-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.ruya-header h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+    font-weight: 600;
+}
+
+.lucid-badge {
+    background: linear-gradient(135deg, #6c63ff, #5a52e7);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.ruya-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.ruya-preview {
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ruya-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.ruya-actions button {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.ruya-actions button:first-child {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.ruya-actions button:first-child:hover {
+    background-color: #e4e4e4;
+}
+
+.ruya-actions button.error {
+    background-color: #fff0f0;
+    color: #ff4444;
+}
+
+.ruya-actions button.error:hover {
+    background-color: #ffe4e4;
+}
+
+/* Yeni Rüya Modal Tasarımı */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    margin: 2rem auto;
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal .close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal .close:hover {
+    color: #333;
+    transform: rotate(90deg);
+}
+
+.modal h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0 0 1.5rem 0;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.1);
+}
+
+.form-group.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group.checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #6c63ff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group.checkbox label {
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.modal button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #6c63ff, #5a52e7);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+}
+
+/* Empty State Design */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #f8f8f8;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
+.empty-state p {
+    color: #666;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.empty-state p:first-child {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page {
+        padding: 1rem;
+    }
+
+    .page-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+
+    .ruya-cards {
+        grid-template-columns: 1fr;
+    }
+} 

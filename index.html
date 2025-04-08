@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Etiketleri -->
+    <title>Rüya Günlüğü - Hayallerinizi Kaydedin</title>
+    <meta name="description" content="Rüyalarınızı kaydedin, yorumlayın ve paylaşın. Kişisel rüya günlüğünüzü oluşturun ve rüyalarınızın anlamını keşfedin.">
+    <meta name="keywords" content="rüya günlüğü, rüya yorumları, rüya kayıt, rüya analizi, lucid rüya">
+    <meta name="author" content="Rüya Günlüğü">
+    
+    <!-- Open Graph Meta Etiketleri -->
+    <meta property="og:title" content="Rüya Günlüğü - Hayallerinizi Kaydedin">
+    <meta property="og:description" content="Rüyalarınızı kaydedin, yorumlayın ve rüyalarınızın anlamını keşfedin">
+    <meta property="og:image" content="images/ss.png">
+    <meta property="og:url" content="https://ruyagunlugu.com">
+    
+    <!-- Twitter Card Meta Etiketleri -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rüya Günlüğü - Hayallerinizi Kaydedin">
+    <meta name="twitter:description" content="Rüyalarınızı kaydedin, yorumlayın ve rüyalarınızın anlamını keşfedin">
+    <meta name="twitter:image" content="images/ss.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ruyagunlugu.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#anasayfa">
+                    <i class="fas fa-moon"></i>
+                    <span>Rüya Günlüğü</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#anasayfa">Ana Sayfa</a></li>
+                <li><a href="#ruya-analiz" class="auth-only">Rüya Analizi</a></li>
+                <li><a href="#ruya-gunlugu" class="auth-only">Günlüğüm</a></li>
+                <li><a href="#profilim" class="auth-only">Profilim</a></li>
+                <li class="guest-only"><button id="girisBtn" class="auth-btn">Giriş Yap</button></li>
+                <li class="guest-only"><button id="kayitBtn" class="auth-btn primary">Kayıt Ol</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="anasayfa" class="hero">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="images/ss.png" alt="Hayal kuran çocuk ve koyunlar" class="feature-image">
+                </div>
+                <div class="hero-text">
+                    <h1>Rüyalarınızı Keşfedin</h1>
+                    <p>Her rüya, zihnimizin bize anlattığı benzersiz bir hikayedir. Rüyalarınızı kaydedin, analiz edin ve bilinçaltınızın mesajlarını keşfedin.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ozellikler" class="features">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Günlük Tutun</h3>
+                    <p>Rüyalarınızı günlük olarak kaydedin ve zaman içindeki değişimleri takip edin.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Analiz Edin</h3>
+                    <p>Rüya sembollerini analiz edin ve rüyalarınızın anlamını keşfedin.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>İstatistikler</h3>
+                    <p>Rüya kalıplarınızı ve tekrarlayan temaları görsel grafiklerle inceleyin.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rüya Günlüğü Dashboard -->
+        <section id="ruya-gunlugu" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Rüya Günlüğüm</h1>
+                    <button id="yeniRuyaEkle" class="yeni-ruya-btn auth-btn primary">
+                        <i class="fas fa-plus"></i> Yeni Rüya Ekle
+                    </button>
+                </div>
+                <div class="page-content">
+                    <div class="empty-state">
+                        <p>Henüz rüya eklenmemiş.</p>
+                        <p>Yeni bir rüya eklemek için "Yeni Rüya Ekle" butonuna tıklayın.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rüya Analiz Sayfası -->
+        <section id="ruya-analiz" class="analiz" style="display: none;">
+            <div class="analiz-container">
+                <div class="analiz-header">
+                    <h2>Rüya Analizi</h2>
+                    <p class="analiz-aciklama">Rüyalarınızın derinliklerine inin ve anlamlarını keşfedin. Kapsamlı analizimiz size sembolleri, duyguları ve temaları bir arada sunar.</p>
+                </div>
+                <div class="analiz-content">
+                    <div class="analiz-card">
+                        <h3>Kapsamlı Rüya Analizi</h3>
+                        <p>Rüyanızın sembollerini, duygusal yönlerini ve ana temalarını tek bir detaylı analizde keşfedin.</p>
+                        <button class="auth-btn primary" id="analizBtn">Analiz Et</button>
+                    </div>
+                    <div class="analiz-sonuc">
+                        <!-- Analiz sonuçları buraya gelecek -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profil Sayfası -->
+        <section id="profilim" class="profil" style="display: none;">
+            <div class="profil-bilgileri">
+                <div class="profil-header">
+                    <div class="profil-resmi">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItdXNlciI+PHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRINmE0IDQgMCAwIDAtNCA0djIiPjwvcGF0aD48Y2lyY2xlIGN4PSIxMiIgY3k9IjciIHI9IjQiPjwvY2lyY2xlPjwvc3ZnPg==" alt="Profil Resmi">
+                    </div>
+                    <div class="profil-detay">
+                        <h3>Hoş geldin!</h3>
+                        <p>Rüya günlüğünüzü yönetin ve analizlerinizi görüntüleyin.</p>
+                    </div>
+                </div>
+                
+                <div class="istatistik-grid">
+                    <div class="istatistik-card">
+                        <h4>Toplam Rüya</h4>
+                        <p id="toplamRuya">0</p>
+                        <span>kayıt</span>
+                    </div>
+                    <div class="istatistik-card">
+                        <h4>Bu Ay</h4>
+                        <p id="aylikRuya">0</p>
+                        <span>rüya</span>
+                    </div>
+                    <div class="istatistik-card">
+                        <h4>Lucid Rüyalar</h4>
+                        <p id="lucidRuya">0</p>
+                        <span>deneyim</span>
+                    </div>
+                </div>
+
+                <div class="profil-actions">
+                    <button class="auth-btn cikis-yap">Çıkış Yap</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            
+            <!-- Kayıt Formu -->
+            <form id="kayitForm" class="auth-form">
+                <h2>Kayıt Ol</h2>
+                <div class="form-group">
+                    <label for="kayitAd">Ad Soyad</label>
+                    <input type="text" id="kayitAd" required>
+                </div>
+                <div class="form-group">
+                    <label for="kayitEmail">E-posta</label>
+                    <input type="email" id="kayitEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="kayitSifre">Şifre</label>
+                    <input type="password" id="kayitSifre" required>
+                </div>
+                <div class="form-group">
+                    <label for="kayitSifreTekrar">Şifre Tekrar</label>
+                    <input type="password" id="kayitSifreTekrar" required>
+                </div>
+                <button type="submit" class="submit-btn">Kayıt Ol</button>
+                <p class="form-switch">Zaten hesabınız var mı? <a href="#" id="girisFormGoster">Giriş Yapın</a></p>
+            </form>
+
+            <!-- Giriş Formu -->
+            <form id="girisForm" class="auth-form" style="display: none;">
+                <h2>Giriş Yap</h2>
+                <div class="form-group">
+                    <label for="girisEmail">E-posta</label>
+                    <input type="email" id="girisEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="girisSifre">Şifre</label>
+                    <input type="password" id="girisSifre" required>
+                </div>
+                <button type="submit" class="submit-btn">Giriş Yap</button>
+                <p class="form-switch">Hesabınız yok mu? <a href="#" id="kayitFormGoster">Kayıt Olun</a></p>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Rüya Günlüğü. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Rüya Günlüğü",
+        "url": "https://ruyagunlugu.com",
+        "logo": "https://ruyagunlugu.com/images/logo.png",
+        "description": "Rüyalarınızı kaydedin, yorumlayın ve rüyalarınızın anlamını keşfedin",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "TR"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+90-XXX-XXX-XXXX",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html> 
